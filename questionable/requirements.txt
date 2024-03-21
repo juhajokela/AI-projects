@@ -1,0 +1,6 @@
+chromadb==0.4.24
+llama-index==0.10.20
+llama-index-llms-huggingface==0.1.4
+llama-index-vector-stores-chroma==0.1.6
+openai==1.14.1
+streamlit==1.32.2

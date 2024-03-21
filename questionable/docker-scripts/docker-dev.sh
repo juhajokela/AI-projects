@@ -1,0 +1,1 @@
+docker run --rm --name questionable -v "$(pwd)":/app -w /app -p 8501:8501 questionable
