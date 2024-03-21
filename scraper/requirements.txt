@@ -1,0 +1,2 @@
+Scrapy==2.11.1
+trafilatura==1.7.0
