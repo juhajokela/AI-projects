@@ -1,0 +1,4 @@
+beautifulsoup4==4.12.3
+openai==1.13.3
+langchain-openai==0.0.8
+unstructured==0.12.6

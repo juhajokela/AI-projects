@@ -1,0 +1,366 @@
+root@3c7b5b1ad14f:/workdir# python apps/chat/app.py -log
+args: Namespace(enable_logging=True, mode='chat', session_id=None, llm_model='gpt-3.5-turbo', system_message=None)
+> Tell me about TypeChat
+
+
+> Entering new ConversationChain chain...
+Prompt after formatting:
+The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know.
+
+Current conversation:
+
+Human: Tell me about TypeChat
+AI:
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'The following is a friendly conversation between a '
+                          'human and an AI. The AI is talkative and provides '
+                          'lots of specific details from its context. If the '
+                          'AI does not know the answer to a question, it '
+                          'truthfully says it does not know.\n'
+                          '\n'
+                          'Current conversation:\n'
+                          '\n'
+                          'Human: Tell me about TypeChat\n'
+                          'AI:',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+
+> Finished chain.
+TypeChat is a messaging platform that allows users to communicate with each other through text messages. It has various features such as emojis, stickers, and the ability to send multimedia files. Users can also create group chats and customize their profiles with photos and status updates. TypeChat is available on both mobile devices and desktop computers, making it convenient for users to stay connected wherever they are. Overall, it's a user-friendly and versatile messaging app that enhances communication between individuals.
+>
+
+
+root@3c7b5b1ad14f:/workdir# python apps/rag/app.py -log -emb=OpenAI typechat txt=data/typechat
+args: Namespace(database='typechat', data_sources=['txt=data/typechat'], mode='chat', enable_logging=True, embedding='OpenAI', llm_model='gpt-3.5-turbo')
+GENERATING VECTOR DB!
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 108.59it/s]
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:faiss.loader:Loading faiss with AVX2 support.
+Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+Successfully loaded faiss with AVX2 support.
+vector_db.index.ntotal: 8
+> Tell me about TypeChat
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': "Answer the user's questions based on the below "
+                          'context:\n'
+                          '\n'
+                          'TypeChat helps get well-typed responses from '
+                          'language models to build\n'
+                          'pragmatic natural language interfaces.\n'
+                          'All powered through your types.\n'
+                          'npm install typechat\n'
+                          '\n'
+                          'Frequently Asked Questions (FAQ)\n'
+                          'What is TypeChat?\n'
+                          'TypeChat makes it easy to build natural language '
+                          'interfaces using types. These types represent your '
+                          "application's domain, such as an interface for "
+                          'representing user sentiment or types for actions a '
+                          'user could take in a music app.\n'
+                          'After defining your types, TypeChat takes care of '
+                          'the rest by:\n'
+                          '- Constructing a prompt to the LLM using types.\n'
+                          '- Validating the LLM response conforms to the '
+                          'schema. If the validation fails, repair the '
+                          'non-conforming output through further language '
+                          'model interaction.\n'
+                          '- Summarizing succinctly (without use of a LLM) the '
+                          'instance and confirm that it aligns with user '
+                          'intent.\n'
+                          'Types are all you need!\n'
+                          'Why is TypeChat useful?\n'
+                          'If you want to add a natural language interface to '
+                          'an app – for example, let’s assume a coffee '
+                          'ordering app that let’s you speak out your order – '
+                          'then you eventually need to translate a request '
+                          'into something precise and concrete that your app '
+                          'can process for tasks like billing, ordering, etc.\n'
+                          'TypeChat lets you push on large language models to '
+                          'do this work without having to worry about how to '
+                          'parse out its response or dealing with “imaginary” '
+                          'items and tasks. This is because everything must be '
+                          'structured JSON that is validated against your '
+                          'types.\n'
+                          'What are the benefits of using TypeChat?\n'
+                          'TypeChat was created with the purpose of increasing '
+                          'safety in natural language interfaces.\n'
+                          'We believe TypeChat has three key primary benefits '
+                          'when working with large language models:\n'
+                          '- Accurate: Large language models do a great job '
+                          "matching user intent to scoped types. TypeChat's "
+                          'validation and repair cleans up the rest!\n'
+                          '- Approachable: No more prompt engineering! Types '
+                          'are all you need. You probably have them already '
+                          'lying around.\n'
+                          '- Safety: Types constrain domain and model '
+                          'uncertainty. Repeating back the instance confirms '
+                          'that it aligns with user intent before taking '
+                          'action.\n'
+                          'How does TypeChat work? How does TypeChat relate to '
+                          'TypeScript?\n'
+                          'TypeChat uses TypeScript types as the '
+                          '“specification language” for responses from '
+                          'language models. The approach for sending a request '
+                          "is minimal that includes the user's inputs, your "
+                          'types, and text requesting the model to translate '
+                          'the user input into a JSON object in alignment with '
+                          'the TypeScript types.\n'
+                          'Once receiving an AI response, TypeChat uses the '
+                          'TypeScript compiler API under the hood to validate '
+                          'the data based on the types you provided. If '
+                          'validation fails, TypeChat sends a repair prompt '
+                          'back to the model that includes diagnostics from '
+                          'the TypeScript compiler. That’s how TypeChat can '
+                          'guarantee that your response is correctly typed.\n'
+                          'How reliable is TypeChat?\n'
+                          'TypeChat is very reliable. Large language models '
+                          'have proven they do well when constrained with '
+                          'unambiguous, formal descriptions of possible '
+                          'outputs. They also perform better the more training '
+                          'they have received. TypeScript is the type system '
+                          "for the world's most popular programming language, "
+                          'and JSON is the interchange format for the most '
+                          'popular programming language. As a result, the '
+                          'model has extreme familiarity with both, increasing '
+                          'accuracy. TypeChat purposely creates the prompt '
+                          'compact, and TypeScript can be as much as 5x more '
+                          'concise than a JSON Schema equivalent. Most of the '
+                          'time, the model responds well to the prompt from '
+                          'TypeChat, and sends back a valid instance. TypeChat '
+                          'adds validation, and (if that fails) self-repairing '
+                          'logic to obtain a valid response from the model '
+                          'using diagnostics from the TypeScript compiler. '
+                          'Finally, TypeChat keeps the user in the loop for '
+                          'final confirmation of intent, serving as a final '
+                          'safety mechanism.\n'
+                          'What languages does TypeChat support?\n'
+                          'Currently TypeChat is being developed just for '
+                          'TypeScript and JavaScript. Developers interested in '
+                          'support for additional languages can engage in '
+                          "discussion on TypeChat's repo in GitHub "
+                          'Discussions.\n'
+                          '\n'
+                          'Introducing TypeChat\n'
+                          'July 20, 2023 by Anders Hejlsberg, Steve Lucco, '
+                          'Daniel Rosenwasser, Pierce Boggan, Umesh Madan, '
+                          'Mike Hopcroft, and Gayathri Chandrasekaran\n'
+                          "In the last few months, we've seen a rush of "
+                          'excitement around the newest wave of large language '
+                          'models. While chat assistants have been the most '
+                          "direct application, there's a big question around "
+                          'how to best integrate these models into existing '
+                          'app interfaces.\n'
+                          'In other words, how do we augment traditional UI '
+                          'with natural language interfaces? How do we use AI '
+                          'to take a user request and turn it into something '
+                          'our apps can operate on? And how do we make sure '
+                          'our apps are safe, and doing work that developers '
+                          'and users alike can trust?\n'
+                          "Today we're releasing TypeChat, an experimental "
+                          'library that aims to answer these questions. It '
+                          'uses the type definitions in your codebase to '
+                          'retrieve structured AI responses that are '
+                          'type-safe.\n'
+                          'You can get up and running with TypeChat today by '
+                          'running\n'
+                          'npm install typechat\n'
+                          'and hooking it up with any language model to work '
+                          'with your app.\n'
+                          "But let's first quickly explore why TypeChat "
+                          'exists.\n'
+                          'Pampering and Parsing\n'
+                          'The current wave of LLMs default to conversational '
+                          'natural language — languages that humans '
+                          'communicate in like English. Parsing natural '
+                          'language is an extremely difficult task, no matter '
+                          'how much you pamper a prompt with rules like '
+                          '"respond in the form a bulleted list". Natural '
+                          "language might have structure, but it's hard for "
+                          'typical software to reconstruct it from raw text.\n'
+                          'Surprisingly, we can ask LLMs to respond in the '
+                          'form of JSON, and they generally respond with '
+                          'something sensible!\n'
+                          'User:\n'
+                          'Translate the following request into JSON.\n'
+                          'Could I get a blueberry muffin and a grande latte?\n'
+                          'Respond only in JSON like the following:\n'
+                          '{ "items": [ { "name": "croissant", "quantity": 2 '
+                          '}, { "name": "latte", "quantity": 1, "size": "tall" '
+                          '} ] }\n'
+                          'ChatBot:\n'
+                          '{ "items": [ { "name": "blueberry muffin", '
+                          '"quantity": 1 }, { "name": "latte", "quantity": 1, '
+                          '"size": "grande" } ] }\n'
+                          'This is good — though this example shows the '
+                          'best-case response. While examples can help guide '
+                          "structure, they don't define what an AI should "
+                          "return extensively, and they don't provide anything "
+                          'we can validate against.\n'
+                          'Just Add Types!\n'
+                          "Luckily types do precisely that. What we've found "
+                          'is that because LLMs have seen so many type '
+                          'definitions in the wild, types also act as a great '
+                          "guide for how an AI should respond. Because we're "
+                          'typically working with JSON — JavaScript Object '
+                          "Notation — and because it's is very near and dear "
+                          "to our hearts, we've been using TypeScript types in "
+                          'our prompts.\n'
+                          'User:\n'
+                          'Translate the following request into JSON.\n'
+                          'Could I get a blueberry muffin and a grande latte?\n'
+                          'Respond only in JSON that satisfies the\n'
+                          'Responsetype:\n'
+                          'type Response = { items: Item[]; }; type Item = { '
+                          'name: string; quantity: number; size?: string; '
+                          'notes?: string; }\n'
+                          'ChatBot:\n'
+                          '{ "items": [ { "name": "blueberry muffin", '
+                          '"quantity": 1 }, { "name": "latte", "quantity": 1, '
+                          '"size": "grande" } ] }\n'
+                          'This is pretty great! TypeScript has shown that '
+                          "it's well-suited to precisely describe JSON. But "
+                          'what happens when a language model stumbles and '
+                          "makes up a response that doesn't conform to our "
+                          'types?\n'
+                          'Well because these types are valid TypeScript code, '
+                          'we can validate the response against them using the '
+                          'TypeScript compiler itself! In fact, the error '
+                          'feedback from the compiler can even be used to '
+                          'guide repairs. When put together, we can get a '
+                          'robust process for getting well-typed responses '
+                          'that our apps can further massage, validate with a '
+                          'user, etc.\n'
+                          'In other words, types are all you need.\n'
+                          'Enter TypeChat\n'
+                          '\n'
+                          'In other words, types are all you need.\n'
+                          'Enter TypeChat\n'
+                          'The technique of combining a human prompt and a '
+                          '"response schema" is not necessarily unique — but '
+                          "it is promising. And as we've focused on "
+                          "translating user intent to structured data, we've "
+                          'found that TypeScript is very well-suited for the '
+                          "task. We've grown more confident with this "
+                          "approach, and in order to prove it out, we're "
+                          'releasing a library called TypeChat to help make it '
+                          'easier to use in your apps. TypeChat is already on '
+                          'npm if you want to try it now, and provides tools '
+                          'for prompt prototyping, schema validation, repair, '
+                          'and more.\n'
+                          "Here's the basic code to hook TypeChat up to an LLM "
+                          'and decide if a sentence is negative, neutral, or '
+                          'positive.\n'
+                          '// ./src/sentimentSchema.ts\n'
+                          '// The following is a schema definition for '
+                          'determining the sentiment of a some user input.\n'
+                          'export interface SentimentResponse {\n'
+                          '/** The sentiment of the text. */\n'
+                          'sentiment: "negative" | "neutral" | "positive";\n'
+                          '}\n'
+                          '// ./src/main.ts\n'
+                          'import * as fs from "fs";\n'
+                          'import * as path from "path";\n'
+                          'import dotenv from "dotenv";\n'
+                          'import * as typechat from "typechat";\n'
+                          'import { SentimentResponse } from '
+                          '"./sentimentSchema";\n'
+                          '// Load environment variables.\n'
+                          'dotenv.config({ path: path.join(__dirname, '
+                          '"../.env") });\n'
+                          '// Create a language model based on the environment '
+                          'variables.\n'
+                          'const model = '
+                          'typechat.createLanguageModel(process.env);\n'
+                          '// Load up the contents of our "Response" schema.\n'
+                          'const schema = fs.readFileSync(path.join(__dirname, '
+                          '"sentimentSchema.ts"), "utf8");\n'
+                          'const translator = '
+                          'typechat.createJsonTranslator<SentimentResponse>(model, '
+                          'schema, "SentimentResponse");\n'
+                          '// Process requests interactively.\n'
+                          'typechat.processRequests("😀> ", /*inputFile*/ '
+                          'undefined, async (request) => {\n'
+                          'const response = await '
+                          'translator.translate(request);\n'
+                          'if (!response.success) {\n'
+                          'console.log(response.message);\n'
+                          'return;\n'
+                          '}\n'
+                          'console.log(`The sentiment is '
+                          '${response.data.sentiment}`);\n'
+                          '});\n'
+                          'TypeChat can be used in a number of different ways. '
+                          "The way we've discussed here so far is all about "
+                          'using a "data schema" to turn some user intent into '
+                          'a structured response; however, TypeChat also makes '
+                          'it possible to use an "API schema" to construct '
+                          'basic programs. We have some docs and examples to '
+                          'get a sense of the different ways you can use '
+                          'TypeChat.\n'
+                          'Open and Pluggable\n'
+                          "First of all, TypeChat is open-source. We're "
+                          'MIT-licensed and you can find us on GitHub where '
+                          "we're eager to hear your thoughts, share our ideas, "
+                          'and build with you.\n'
+                          'Second, TypeChat is built in a way that is meant to '
+                          'be model-neutral. While we have some very basic '
+                          'integration with the OpenAI API and the Azure '
+                          'OpenAI service for convenience, this approach '
+                          'should work for any chat completion-style API that '
+                          'you want to use — though note that at the moment, '
+                          'TypeChat works best with models that have been '
+                          'trained on both prose and code.\n'
+                          'Try It Today!\n'
+                          "We'd love to know if TypeChat is something that's "
+                          "useful and interests you! As we mentioned, we'll be "
+                          'welcoming you on GitHub if you have any question, '
+                          'suggestions, and more.\n'
+                          'Happy Hacking!',
+               'role': 'system'},
+              {'content': 'Tell me about TypeChat', 'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+Response:
+{
+  "id": "chatcmpl-97LWWLdjuMYb0wooPJ9T74AdZYFfW",
+  "object": "chat.completion",
+  "created": 1711538060,
+  "model": "gpt-3.5-turbo-0125",
+  "choice
+s": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "TypeChat is an experimental library that allows you to build natural language interfaces using types. It leverages TypeScript types as a \"specification language\" for responses from large language models, making it easier to work with AI responses in a structured and type-safe manner. TypeChat helps in constructing prompts to language models, validating responses against predefined types, and ensuring that the responses align with user intent. It aims to increase safety in natural language interfaces by providing accurate, approachable, and safe interactions with large language models. The library is open-source and available for use with TypeScript and JavaScript, with potential future support for additional languages. Feel free to explore and try out TypeChat for integrating natural language interfaces into your applications."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2290,
+    "completion_tokens": 142,
+    "total_tokens": 2432
+  },
+  "system_fingerprint": "fp_3bc1b5746c"
+}
+
+TypeChat is an experimental library that allows you to build natural language interfaces using types. It leverages TypeScript types as a "specification language" for responses from large language models, making it easier to work with AI responses in a structured and type-safe manner. TypeChat helps in constructing prompts to language models, validating responses against predefined types, and ensuring that the responses align with user intent. It aims to increase safety in natural language interfaces by providing accurate, approachable, and safe interactions with large language models. The library is open-source and available for use with TypeScript and JavaScript, with potential future support for additional languages. Feel free to explore and try out TypeChat for integrating natural language interfaces into your applications.
+context: 4
+>

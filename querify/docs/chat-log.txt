@@ -1,0 +1,194 @@
+root@8e3a6a490da1:/workdir# python apps/chat/app.py -log -m chat
+args: Namespace(enable_logging=True, mode='chat', session_id=None, llm_model='gpt-3.5-turbo', system_message=None)
+> Hello!
+
+
+> Entering new ConversationChain chain...
+Prompt after formatting:
+The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know.
+
+Current conversation:
+
+Human: Hello!
+AI:
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'The following is a friendly conversation between a '
+                          'human and an AI. The AI is talkative and provides '
+                          'lots of specific details from its context. If the '
+                          'AI does not know the answer to a question, it '
+                          'truthfully says it does not know.\n'
+                          '\n'
+                          'Current conversation:\n'
+                          '\n'
+                          'Human: Hello!\n'
+                          'AI:',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+
+> Finished chain.
+Hello! How are you today?
+> I'm doing well, how about you?
+
+
+> Entering new ConversationChain chain...
+Prompt after formatting:
+The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know.
+
+Current conversation:
+Human: Hello!
+AI: Hello! How are you today?
+Human: I'm doing well, how about you?
+AI:
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'The following is a friendly conversation between a '
+                          'human and an AI. The AI is talkative and provides '
+                          'lots of specific details from its context. If the '
+                          'AI does not know the answer to a question, it '
+                          'truthfully says it does not know.\n'
+                          '\n'
+                          'Current conversation:\n'
+                          'Human: Hello!\n'
+                          'AI: Hello! How are you today?\n'
+                          "Human: I'm doing well, how about you?\n"
+                          'AI:',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+
+> Finished chain.
+I'm just a computer program, so I don't have feelings, but I'm functioning optimally and ready to assist you with any questions or tasks you have. How can I help you today?
+>
+
+
+root@8e3a6a490da1:/workdir# python apps/chat/app.py -log -m chat-storage
+args: Namespace(enable_logging=True, mode='chat-storage', session_id=None, llm_model='gpt-3.5-turbo', system_message=None)
+> Hello!
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'Hello!', 'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': True,
+ 'temperature': 0.7}
+
+Hello! How can I assist you today?
+> I don't know
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'Hello!', 'role': 'user'},
+              {'content': 'Hello! How can I assist you today?',
+               'role': 'assistant'},
+              {'content': "I don't know", 'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': True,
+ 'temperature': 0.7}
+
+No problem! If you have any questions or need help with something, feel free to ask. I'm here to assist you with whatever you need.
+>
+
+
+root@8e3a6a490da1:/workdir# python apps/chat/app.py -log -m chat-storage -sid random
+args: Namespace(enable_logging=True, mode='chat-storage', session_id='random', llm_model='gpt-3.5-turbo', system_message=None)
+> Hello!
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'Hello!', 'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': True,
+ 'temperature': 0.7}
+
+Hello! How can I assist you today?
+> I don't know
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'Hello!', 'role': 'user'},
+              {'content': 'Hello! How can I assist you today?',
+               'role': 'assistant'},
+              {'content': "I don\udcc3't know", 'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': True,
+ 'temperature': 0.7}
+
+That's okay! Is there anything specific you need help with or would like to talk about? I'm here to help with anything you might need.
+>
+
+
+root@8e3a6a490da1:/workdir# python apps/chat/app.py -log -m chat-summarized
+args: Namespace(enable_logging=True, mode='chat-summarized', session_id=None, llm_model='gpt-3.5-turbo', system_message=None)
+> Hello!
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'Hello!', 'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': True,
+ 'temperature': 0.7}
+
+Hi there! How can I assist you today?
+> I don't know
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'Hello!', 'role': 'user'},
+              {'content': 'Hi there! How can I assist you today?',
+               'role': 'assistant'},
+              {'content': 'Distill the above chat messages into a single '
+                          'summary message. Include as many specific details '
+                          'as you can.',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'In the chat conversation, the user greeted the '
+                          'assistant with "Hello!" and the assistant responded '
+                          'with a friendly "Hi there!" The user then asked how '
+                          'the assistant could help.',
+               'role': 'assistant'},
+              {'content': "I don't know", 'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': True,
+ 'temperature': 0.7}
+
+No problem! Feel free to ask me any questions or let me know if there's anything specific you'd like help with. I'm here to assist you.
+>
+
+
+root@8e3a6a490da1:/workdir# python apps/chat/app.py -log -m query
+args: Namespace(enable_logging=True, mode='query', session_id=None, llm_model='gpt-3.5-turbo', system_message=None)
+> Hello!
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'Hello!', 'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': True,
+ 'temperature': 0.7}
+
+Hi there! How can I assist you today?
+> I don't know
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': "I don't know", 'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': True,
+ 'temperature': 0.7}
+
+That's okay! Is there anything specific you need help with or have a question about? I'm here to assist you.
+>

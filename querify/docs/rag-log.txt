@@ -1,0 +1,1450 @@
+root@3c7b5b1ad14f:/workdir# python apps/rag/app.py langsmith url=https://docs.smith.langchain.com/user_guide
+args: Namespace(database='langsmith', data_sources=['url=https://docs.smith.langchain.com/user_guide'], mode='chat', enable_logging=False, embedding='all-MiniLM-L6-v2', llm_model='gpt-3.5-turbo')
+modules.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 349/349 [00:00<00:00, 201kB/s]
+config_sentence_transformers.json: 100%|███████████████████████████████████████████████████████████████████████████████████| 116/116 [00:00<00:00, 93.3kB/s]
+README.md: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 10.7k/10.7k [00:00<00:00, 8.29MB/s]
+sentence_bert_config.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████| 53.0/53.0 [00:00<00:00, 26.1kB/s]
+config.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 612/612 [00:00<00:00, 1.04MB/s]
+model.safetensors: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 90.9M/90.9M [00:03<00:00, 23.7MB/s]
+tokenizer_config.json: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 350/350 [00:00<00:00, 477kB/s]
+vocab.txt: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 232k/232k [00:00<00:00, 974kB/s]
+tokenizer.json: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 466k/466k [00:00<00:00, 1.98MB/s]
+special_tokens_map.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████████| 112/112 [00:00<00:00, 143kB/s]
+1_Pooling/config.json: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 190/190 [00:00<00:00, 140kB/s]
+GENERATING VECTOR DB!
+vector_db.index.ntotal: 3
+> How can LangSmith help with testing?
+LangSmith offers several features to assist with testing LLM applications:
+
+1. **Initial Test Set:** Developers can create datasets with inputs and reference outputs to run tests on their LLM applications. Test cases can be uploaded in bulk, created on the fly, or exported from application traces. Custom evaluations can also be run to score test results.
+
+2. **Comparison View:** Users can compare different versions of their applications to see if there have been regressions with respect to initial test cases. This is useful for tracking and diagnosing any declines in test scores across multiple revisions.
+
+3. **Playground:** LangSmith provides a playground environment for rapid iteration and experimentation. Developers can test out different prompts and models quickly, with each run logged in the system for creating test cases or comparisons with other runs.
+
+4. **Beta Testing:** During beta testing, LangSmith helps in collecting data on how LLM applications perform in real-world scenarios. Feedback collection and run annotation are crucial for understanding performance on different inputs and identifying areas for improvement or regression tracking.
+
+5. **Monitoring and A/B Testing:** LangSmith provides monitoring charts to track key metrics over time, allowing users to analyze performance at scale. A/B testing changes in prompt, model, or retrieval strategy is supported through tag and metadata grouping, enabling side-by-side performance comparisons within each chart.
+
+Overall, LangSmith streamlines the testing process by providing tools for creating test cases, comparing results, experimenting with different models, collecting feedback, and monitoring application performance.
+context: 3
+> Tell me how
+LangSmith aids in testing LLM applications through various functionalities:
+
+1. **Initial Test Set Creation:** LangSmith enables developers to generate datasets comprising inputs and reference outputs for running tests on LLM applications. These test cases can be uploaded in bulk, created on-the-fly, or extracted from application traces. Additionally, custom evaluations can be conducted to assess test results more effectively.
+
+2. **Comparison View:** Users can leverage LangSmith's comparison view feature to assess different iterations of their applications against initial test cases. This functionality facilitates the identification and diagnosis of any potential regressions in test scores across multiple application revisions.
+
+3. **Playground Environment:** LangSmith provides a dedicated playground environment that fosters rapid iteration and experimentation. This feature allows developers to swiftly test diverse prompts and models, with each playground run being logged in the system. These logs can then be utilized to create test cases or compare with other runs.
+
+4. **Beta Testing Support:** LangSmith aids in the beta testing phase by assisting developers in gathering real-world performance data for LLM applications. Feedback collection and run annotation play vital roles in understanding how the application behaves across various scenarios, thereby aiding in the identification of areas for improvement and regression tracking.
+
+5. **Monitoring and A/B Testing:** LangSmith equips users with monitoring charts that facilitate the tracking of key metrics over time. This functionality enables users to delve into specific data points and obtain trace tables for debugging production issues. Additionally, LangSmith supports A/B testing by allowing for the grouping of different versions of applications with distinct identifiers, enabling users to compare their performance side-by-side within each chart.
+
+By offering these features, LangSmith optimizes the testing process for LLM applications, empowering users to create test cases, compare results, experiment with different models, collect feedback, and monitor application performance effectively.
+context: 3
+>
+
+
+root@3c7b5b1ad14f:/workdir# python apps/rag/app.py -log -emb=OpenAI -m query-advanced langsmith-openai url=https://docs.smith.langchain.com/user_guide
+args: Namespace(database='langsmith-openai', data_sources=['url=https://docs.smith.langchain.com/user_guide'], mode='query-advanced', enable_logging=True, embedding='OpenAI', llm_model='gpt-3.5-turbo')
+GENERATING VECTOR DB!
+INFO:langchain_community.document_loaders.web_base:fake_useragent not found, using default user agent.To get a realistic header for requests, `pip install fake_useragent`.
+fake_useragent not found, using default user agent.To get a realistic header for requests, `pip install fake_useragent`.
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:faiss.loader:Loading faiss with AVX2 support.
+Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+Successfully loaded faiss with AVX2 support.
+vector_db.index.ntotal: 3
+> How can LangSmith help with testing?
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'Answer the following question based only on the '
+                          'provided context:\n'
+                          '\n'
+                          '<context>\n'
+                          'Skip to main content\uf8ffü¶úÔ∏è\uf8ffüõ†Ô∏è '
+                          'LangSmith DocsLangChain Python DocsLangChain JS/TS '
+                          'DocsLangSmith API DocsSearchGo to AppLangSmithUser '
+                          'GuideSetupPricing (Coming '
+                          'Soon)Self-HostingTracingEvaluationMonitoringPrompt '
+                          'HubProxyCookbookUser GuideOn this pageLangSmith '
+                          'User GuideLangSmith is a platform for LLM '
+                          'application development, monitoring, and testing. '
+                          'In this guide, we‚Äôll highlight the breadth of '
+                          'workflows LangSmith supports and how they fit into '
+                          'each stage of the application development '
+                          'lifecycle. We hope this will inform users how to '
+                          'best utilize this powerful platform or give them '
+                          'something to consider if they‚Äôre just starting '
+                          'their journey.Prototyping‚ÄãPrototyping LLM '
+                          'applications often involves quick experimentation '
+                          'between prompts, model types, retrieval strategy '
+                          'and other parameters.\n'
+                          'The ability to rapidly understand how the model is '
+                          'performing ‚Äî and debug where it is failing ‚Äî is '
+                          'incredibly important for this '
+                          'phase.Debugging‚ÄãWhen developing new LLM '
+                          'applications, we suggest having LangSmith tracing '
+                          'enabled by default.\n'
+                          'Oftentimes, it isn‚Äôt necessary to look at every '
+                          'single trace. However, when things go wrong (an '
+                          'unexpected end result, infinite agent loop, slower '
+                          'than expected execution, higher than expected token '
+                          'usage), it‚Äôs extremely helpful to debug by '
+                          'looking through the application traces. LangSmith '
+                          'gives clear visibility and debugging information at '
+                          'each step of an LLM sequence, making it much easier '
+                          'to identify and root-cause issues.\n'
+                          'We provide native rendering of chat messages, '
+                          'functions, and retrieve documents.Initial Test '
+                          'Set‚ÄãWhile many developers still ship an initial '
+                          'version of their application based on ‚Äúvibe '
+                          'checks‚Äù, we‚Äôve seen an increasing number of '
+                          'engineering teams start to adopt a more test driven '
+                          'approach. LangSmith allows developers to create '
+                          'datasets, which are collections of inputs and '
+                          'reference outputs, and use these to run tests on '
+                          'their LLM applications.\n'
+                          'These test cases can be uploaded in bulk, created '
+                          'on the fly, or exported from application traces. '
+                          'LangSmith also makes it easy to run custom '
+                          'evaluations (both LLM and heuristic based) to score '
+                          'test results.Comparison View‚ÄãWhen prototyping '
+                          'different versions of your applications and making '
+                          'changes, it‚Äôs important to see whether or not '
+                          'you‚Äôve regressed with respect to your initial '
+                          'test cases.\n'
+                          'Oftentimes, changes in the prompt, retrieval '
+                          'strategy, or model choice can have huge '
+                          'implications in responses produced by your '
+                          'application.\n'
+                          'In order to get a sense for which variant is '
+                          'performing better, it‚Äôs useful to be able to view '
+                          'results for different configurations on the same '
+                          'datapoints side-by-side. We‚Äôve invested heavily '
+                          'in a user-friendly comparison view for test runs to '
+                          'track and diagnose regressions in test scores '
+                          'across multiple revisions of your '
+                          'application.Playground‚ÄãLangSmith provides a '
+                          'playground environment for rapid iteration and '
+                          'experimentation.\n'
+                          'This allows you to quickly test out different '
+                          'prompts and models. You can open the playground '
+                          'from any prompt or model run in your trace.\n'
+                          '\n'
+                          'This allows you to quickly test out different '
+                          'prompts and models. You can open the playground '
+                          'from any prompt or model run in your trace.\n'
+                          'Every playground run is logged in the system and '
+                          'can be used to create test cases or compare with '
+                          'other runs.Beta Testing‚ÄãBeta testing allows '
+                          'developers to collect more data on how their LLM '
+                          'applications are performing in real-world '
+                          'scenarios. In this phase, it‚Äôs important to '
+                          'develop an understanding for the types of inputs '
+                          'the app is performing well or poorly on and how '
+                          'exactly it‚Äôs breaking down in those cases. Both '
+                          'feedback collection and run annotation are critical '
+                          'for this workflow. This will help in curation of '
+                          'test cases that can help track '
+                          'regressions/improvements and development of '
+                          'automatic evaluations.Capturing Feedback‚ÄãWhen '
+                          'launching your application to an initial set of '
+                          'users, it‚Äôs important to gather human feedback on '
+                          'the responses it‚Äôs producing. This helps draw '
+                          'attention to the most interesting runs and '
+                          'highlight edge cases that are causing problematic '
+                          'responses. LangSmith allows you to attach feedback '
+                          'scores to logged traces (oftentimes, this is hooked '
+                          'up to a feedback button in your app), then filter '
+                          'on traces that have a specific feedback tag and '
+                          'score. A common workflow is to filter on traces '
+                          'that receive a poor user feedback score, then drill '
+                          'down into problematic points using the detailed '
+                          'trace view.Annotating Traces‚ÄãLangSmith also '
+                          'supports sending runs to annotation queues, which '
+                          'allow annotators to closely inspect interesting '
+                          'traces and annotate them with respect to different '
+                          'criteria. Annotators can be PMs, engineers, or even '
+                          'subject matter experts. This allows users to catch '
+                          'regressions across important evaluation '
+                          'criteria.Adding Runs to a Dataset‚ÄãAs your '
+                          'application progresses through the beta testing '
+                          "phase, it's essential to continue collecting data "
+                          'to refine and improve its performance. LangSmith '
+                          'enables you to add runs as examples to datasets '
+                          '(from both the project page and within an '
+                          'annotation queue), expanding your test coverage on '
+                          'real-world scenarios. This is a key benefit in '
+                          'having your logging system and your '
+                          'evaluation/testing system in the same '
+                          'platform.Production‚ÄãClosely inspecting key data '
+                          'points, growing benchmarking datasets, annotating '
+                          'traces, and drilling down into important data in '
+                          'trace view are workflows you‚Äôll also want to do '
+                          'once your app hits production. However, especially '
+                          'at the production stage, it‚Äôs crucial to get a '
+                          'high-level overview of application performance with '
+                          'respect to latency, cost, and feedback scores. This '
+                          "ensures that it's delivering desirable results at "
+                          'scale.Monitoring and A/B Testing‚ÄãLangSmith '
+                          'provides monitoring charts that allow you to track '
+                          'key metrics over time. You can expand to view '
+                          'metrics for a given period and drill down into a '
+                          'specific data point to get a trace table for that '
+                          'time period ‚Äî this is especially handy for '
+                          'debugging production issues.LangSmith also allows '
+                          'for tag and metadata grouping, which allows users '
+                          'to mark different versions of their applications '
+                          'with different identifiers and view how they are '
+                          'performing side-by-side within each chart. This is '
+                          'helpful for A/B testing changes in prompt, model, '
+                          'or retrieval strategy.Was this page '
+                          'helpful?PreviousLangSmithNextSetupPrototypingBeta '
+                          'TestingProductionCommunityDiscordTwitterGitHubDocs '
+                          'CodeLangSmith '
+                          'SDKPythonJS/TSMoreHomepageBlogCopyright ¬© 2024 '
+                          'LangChain, Inc.\n'
+                          '\n'
+                          'LangSmith User Guide | \uf8ffü¶úÔ∏è\uf8ffüõ†Ô∏è '
+                          'LangSmith\n'
+                          '</context>\n'
+                          '\n'
+                          'Question: How can LangSmith help with testing?',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+Response:
+{
+  "id": "chatcmpl-97LbEC1nDFUMqn5Q9dEf5CfIUvdNZ",
+  "object": "chat.completion",
+  "created": 1711538352,
+  "model": "gpt-3.5-turbo-0125",
+  "choice
+s": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "LangSmith can help with testing by allowing developers to create datasets, run tests on their LLM applications, upload test cases in bulk, create test cases on the fly, export test cases from application traces, and run custom evaluations to score test results. Additionally, LangSmith provides a comparison view to track and diagnose regressions in test scores across multiple revisions of an application. The platform also offers a playground environment for rapid iteration and experimentation, as well as beta testing capabilities to collect data on how LLM applications are performing in real-world scenarios. Feedback collection, run annotation, and adding runs to datasets are also supported features for testing purposes."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1376,
+    "completion_tokens": 127,
+    "total_tokens": 1503
+  },
+  "system_fingerprint": "fp_3bc1b5746c"
+}
+
+LangSmith can help with testing by allowing developers to create datasets, run tests on their LLM applications, upload test cases in bulk, create test cases on the fly, export test cases from application traces, and run custom evaluations to score test results. Additionally, LangSmith provides a comparison view to track and diagnose regressions in test scores across multiple revisions of an application. The platform also offers a playground environment for rapid iteration and experimentation, as well as beta testing capabilities to collect data on how LLM applications are performing in real-world scenarios. Feedback collection, run annotation, and adding runs to datasets are also supported features for testing purposes.
+context: 3
+> Tell me how
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'Answer the following question based only on the '
+                          'provided context:\n'
+                          '\n'
+                          '<context>\n'
+                          'This allows you to quickly test out different '
+                          'prompts and models. You can open the playground '
+                          'from any prompt or model run in your trace.\n'
+                          'Every playground run is logged in the system and '
+                          'can be used to create test cases or compare with '
+                          'other runs.Beta Testing‚ÄãBeta testing allows '
+                          'developers to collect more data on how their LLM '
+                          'applications are performing in real-world '
+                          'scenarios. In this phase, it‚Äôs important to '
+                          'develop an understanding for the types of inputs '
+                          'the app is performing well or poorly on and how '
+                          'exactly it‚Äôs breaking down in those cases. Both '
+                          'feedback collection and run annotation are critical '
+                          'for this workflow. This will help in curation of '
+                          'test cases that can help track '
+                          'regressions/improvements and development of '
+                          'automatic evaluations.Capturing Feedback‚ÄãWhen '
+                          'launching your application to an initial set of '
+                          'users, it‚Äôs important to gather human feedback on '
+                          'the responses it‚Äôs producing. This helps draw '
+                          'attention to the most interesting runs and '
+                          'highlight edge cases that are causing problematic '
+                          'responses. LangSmith allows you to attach feedback '
+                          'scores to logged traces (oftentimes, this is hooked '
+                          'up to a feedback button in your app), then filter '
+                          'on traces that have a specific feedback tag and '
+                          'score. A common workflow is to filter on traces '
+                          'that receive a poor user feedback score, then drill '
+                          'down into problematic points using the detailed '
+                          'trace view.Annotating Traces‚ÄãLangSmith also '
+                          'supports sending runs to annotation queues, which '
+                          'allow annotators to closely inspect interesting '
+                          'traces and annotate them with respect to different '
+                          'criteria. Annotators can be PMs, engineers, or even '
+                          'subject matter experts. This allows users to catch '
+                          'regressions across important evaluation '
+                          'criteria.Adding Runs to a Dataset‚ÄãAs your '
+                          'application progresses through the beta testing '
+                          "phase, it's essential to continue collecting data "
+                          'to refine and improve its performance. LangSmith '
+                          'enables you to add runs as examples to datasets '
+                          '(from both the project page and within an '
+                          'annotation queue), expanding your test coverage on '
+                          'real-world scenarios. This is a key benefit in '
+                          'having your logging system and your '
+                          'evaluation/testing system in the same '
+                          'platform.Production‚ÄãClosely inspecting key data '
+                          'points, growing benchmarking datasets, annotating '
+                          'traces, and drilling down into important data in '
+                          'trace view are workflows you‚Äôll also want to do '
+                          'once your app hits production. However, especially '
+                          'at the production stage, it‚Äôs crucial to get a '
+                          'high-level overview of application performance with '
+                          'respect to latency, cost, and feedback scores. This '
+                          "ensures that it's delivering desirable results at "
+                          'scale.Monitoring and A/B Testing‚ÄãLangSmith '
+                          'provides monitoring charts that allow you to track '
+                          'key metrics over time. You can expand to view '
+                          'metrics for a given period and drill down into a '
+                          'specific data point to get a trace table for that '
+                          'time period ‚Äî this is especially handy for '
+                          'debugging production issues.LangSmith also allows '
+                          'for tag and metadata grouping, which allows users '
+                          'to mark different versions of their applications '
+                          'with different identifiers and view how they are '
+                          'performing side-by-side within each chart. This is '
+                          'helpful for A/B testing changes in prompt, model, '
+                          'or retrieval strategy.Was this page '
+                          'helpful?PreviousLangSmithNextSetupPrototypingBeta '
+                          'TestingProductionCommunityDiscordTwitterGitHubDocs '
+                          'CodeLangSmith '
+                          'SDKPythonJS/TSMoreHomepageBlogCopyright ¬© 2024 '
+                          'LangChain, Inc.\n'
+                          '\n'
+                          'LangSmith User Guide | \uf8ffü¶úÔ∏è\uf8ffüõ†Ô∏è '
+                          'LangSmith\n'
+                          '\n'
+                          'Skip to main content\uf8ffü¶úÔ∏è\uf8ffüõ†Ô∏è '
+                          'LangSmith DocsLangChain Python DocsLangChain JS/TS '
+                          'DocsLangSmith API DocsSearchGo to AppLangSmithUser '
+                          'GuideSetupPricing (Coming '
+                          'Soon)Self-HostingTracingEvaluationMonitoringPrompt '
+                          'HubProxyCookbookUser GuideOn this pageLangSmith '
+                          'User GuideLangSmith is a platform for LLM '
+                          'application development, monitoring, and testing. '
+                          'In this guide, we‚Äôll highlight the breadth of '
+                          'workflows LangSmith supports and how they fit into '
+                          'each stage of the application development '
+                          'lifecycle. We hope this will inform users how to '
+                          'best utilize this powerful platform or give them '
+                          'something to consider if they‚Äôre just starting '
+                          'their journey.Prototyping‚ÄãPrototyping LLM '
+                          'applications often involves quick experimentation '
+                          'between prompts, model types, retrieval strategy '
+                          'and other parameters.\n'
+                          'The ability to rapidly understand how the model is '
+                          'performing ‚Äî and debug where it is failing ‚Äî is '
+                          'incredibly important for this '
+                          'phase.Debugging‚ÄãWhen developing new LLM '
+                          'applications, we suggest having LangSmith tracing '
+                          'enabled by default.\n'
+                          'Oftentimes, it isn‚Äôt necessary to look at every '
+                          'single trace. However, when things go wrong (an '
+                          'unexpected end result, infinite agent loop, slower '
+                          'than expected execution, higher than expected token '
+                          'usage), it‚Äôs extremely helpful to debug by '
+                          'looking through the application traces. LangSmith '
+                          'gives clear visibility and debugging information at '
+                          'each step of an LLM sequence, making it much easier '
+                          'to identify and root-cause issues.\n'
+                          'We provide native rendering of chat messages, '
+                          'functions, and retrieve documents.Initial Test '
+                          'Set‚ÄãWhile many developers still ship an initial '
+                          'version of their application based on ‚Äúvibe '
+                          'checks‚Äù, we‚Äôve seen an increasing number of '
+                          'engineering teams start to adopt a more test driven '
+                          'approach. LangSmith allows developers to create '
+                          'datasets, which are collections of inputs and '
+                          'reference outputs, and use these to run tests on '
+                          'their LLM applications.\n'
+                          'These test cases can be uploaded in bulk, created '
+                          'on the fly, or exported from application traces. '
+                          'LangSmith also makes it easy to run custom '
+                          'evaluations (both LLM and heuristic based) to score '
+                          'test results.Comparison View‚ÄãWhen prototyping '
+                          'different versions of your applications and making '
+                          'changes, it‚Äôs important to see whether or not '
+                          'you‚Äôve regressed with respect to your initial '
+                          'test cases.\n'
+                          'Oftentimes, changes in the prompt, retrieval '
+                          'strategy, or model choice can have huge '
+                          'implications in responses produced by your '
+                          'application.\n'
+                          'In order to get a sense for which variant is '
+                          'performing better, it‚Äôs useful to be able to view '
+                          'results for different configurations on the same '
+                          'datapoints side-by-side. We‚Äôve invested heavily '
+                          'in a user-friendly comparison view for test runs to '
+                          'track and diagnose regressions in test scores '
+                          'across multiple revisions of your '
+                          'application.Playground‚ÄãLangSmith provides a '
+                          'playground environment for rapid iteration and '
+                          'experimentation.\n'
+                          'This allows you to quickly test out different '
+                          'prompts and models. You can open the playground '
+                          'from any prompt or model run in your trace.\n'
+                          '</context>\n'
+                          '\n'
+                          'Question: Tell me how',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+Response:
+{
+  "id": "chatcmpl-97LbMQ9WY0MQP7a4WButSaI4aF4Co",
+  "object": "chat.completion",
+  "created": 1711538360,
+  "model": "gpt-3.5-turbo-0125",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "developers can use LangSmith to capture feedback during beta testing."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1371,
+    "completion_tokens": 12,
+    "total_tokens": 1383
+  },
+  "system_fingerprint": "fp_3bc1b5746c"
+}
+
+developers can use LangSmith to capture feedback during beta testing.
+context: 3
+>
+
+
+root@3c7b5b1ad14f:/workdir# python apps/rag/app.py -log -emb=OpenAI -m chat-history langsmith-openai url=https://docs.smith.langchain.com/user_guide
+args: Namespace(database='langsmith-openai', data_sources=['url=https://docs.smith.langchain.com/user_guide'], mode='chat-history', enable_logging=True, embedding='OpenAI', llm_model='gpt-3.5-turbo')
+LOADING VECTOR DB!
+INFO:faiss.loader:Loading faiss with AVX2 support.
+Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+Successfully loaded faiss with AVX2 support.
+vector_db.index.ntotal: 3
+> How can LangSmith help with testing?
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'Given the following conversation and a follow up '
+                          'question, rephrase the follow up question to be a '
+                          'standalone question, in its original language.\n'
+                          '\n'
+                          'Chat History:\n'
+                          '\n'
+                          'Follow Up Input: How can LangSmith help with '
+                          'testing?\n'
+                          'Standalone question:',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+Response:
+{
+  "id": "chatcmpl-97Lbcg4vHhUzXfN7zS3UA2OwuVcxx",
+  "object": "chat.completion",
+  "created": 1711538376,
+  "model": "gpt-3.5-turbo-0125",
+  "choices":
+[
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "How can LangSmith help with testing?"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 53,
+    "completion_tokens": 8,
+    "total_tokens": 61
+  },
+  "system_fingerprint": "fp_3bc1b5746c"
+}
+
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': '\n'
+                          '            Answer the question based only on the '
+                          'following context:\n'
+                          '            Skip to main '
+                          'content\uf8ffü¶úÔ∏è\uf8ffüõ†Ô∏è LangSmith '
+                          'DocsLangChain Python DocsLangChain JS/TS '
+                          'DocsLangSmith API DocsSearchGo to AppLangSmithUser '
+                          'GuideSetupPricing (Coming '
+                          'Soon)Self-HostingTracingEvaluationMonitoringPrompt '
+                          'HubProxyCookbookUser GuideOn this pageLangSmith '
+                          'User GuideLangSmith is a platform for LLM '
+                          'application development, monitoring, and testing. '
+                          'In this guide, we‚Äôll highlight the breadth of '
+                          'workflows LangSmith supports and how they fit into '
+                          'each stage of the application development '
+                          'lifecycle. We hope this will inform users how to '
+                          'best utilize this powerful platform or give them '
+                          'something to consider if they‚Äôre just starting '
+                          'their journey.Prototyping‚ÄãPrototyping LLM '
+                          'applications often involves quick experimentation '
+                          'between prompts, model types, retrieval strategy '
+                          'and other parameters.\n'
+                          'The ability to rapidly understand how the model is '
+                          'performing ‚Äî and debug where it is failing ‚Äî is '
+                          'incredibly important for this '
+                          'phase.Debugging‚ÄãWhen developing new LLM '
+                          'applications, we suggest having LangSmith tracing '
+                          'enabled by default.\n'
+                          'Oftentimes, it isn‚Äôt necessary to look at every '
+                          'single trace. However, when things go wrong (an '
+                          'unexpected end result, infinite agent loop, slower '
+                          'than expected execution, higher than expected token '
+                          'usage), it‚Äôs extremely helpful to debug by '
+                          'looking through the application traces. LangSmith '
+                          'gives clear visibility and debugging information at '
+                          'each step of an LLM sequence, making it much easier '
+                          'to identify and root-cause issues.\n'
+                          'We provide native rendering of chat messages, '
+                          'functions, and retrieve documents.Initial Test '
+                          'Set‚ÄãWhile many developers still ship an initial '
+                          'version of their application based on ‚Äúvibe '
+                          'checks‚Äù, we‚Äôve seen an increasing number of '
+                          'engineering teams start to adopt a more test driven '
+                          'approach. LangSmith allows developers to create '
+                          'datasets, which are collections of inputs and '
+                          'reference outputs, and use these to run tests on '
+                          'their LLM applications.\n'
+                          'These test cases can be uploaded in bulk, created '
+                          'on the fly, or exported from application traces. '
+                          'LangSmith also makes it easy to run custom '
+                          'evaluations (both LLM and heuristic based) to score '
+                          'test results.Comparison View‚ÄãWhen prototyping '
+                          'different versions of your applications and making '
+                          'changes, it‚Äôs important to see whether or not '
+                          'you‚Äôve regressed with respect to your initial '
+                          'test cases.\n'
+                          'Oftentimes, changes in the prompt, retrieval '
+                          'strategy, or model choice can have huge '
+                          'implications in responses produced by your '
+                          'application.\n'
+                          'In order to get a sense for which variant is '
+                          'performing better, it‚Äôs useful to be able to view '
+                          'results for different configurations on the same '
+                          'datapoints side-by-side. We‚Äôve invested heavily '
+                          'in a user-friendly comparison view for test runs to '
+                          'track and diagnose regressions in test scores '
+                          'across multiple revisions of your '
+                          'application.Playground‚ÄãLangSmith provides a '
+                          'playground environment for rapid iteration and '
+                          'experimentation.\n'
+                          'This allows you to quickly test out different '
+                          'prompts and models. You can open the playground '
+                          'from any prompt or model run in your trace.\n'
+                          '\n'
+                          'This allows you to quickly test out different '
+                          'prompts and models. You can open the playground '
+                          'from any prompt or model run in your trace.\n'
+                          'Every playground run is logged in the system and '
+                          'can be used to create test cases or compare with '
+                          'other runs.Beta Testing‚ÄãBeta testing allows '
+                          'developers to collect more data on how their LLM '
+                          'applications are performing in real-world '
+                          'scenarios. In this phase, it‚Äôs important to '
+                          'develop an understanding for the types of inputs '
+                          'the app is performing well or poorly on and how '
+                          'exactly it‚Äôs breaking down in those cases. Both '
+                          'feedback collection and run annotation are critical '
+                          'for this workflow. This will help in curation of '
+                          'test cases that can help track '
+                          'regressions/improvements and development of '
+                          'automatic evaluations.Capturing Feedback‚ÄãWhen '
+                          'launching your application to an initial set of '
+                          'users, it‚Äôs important to gather human feedback on '
+                          'the responses it‚Äôs producing. This helps draw '
+                          'attention to the most interesting runs and '
+                          'highlight edge cases that are causing problematic '
+                          'responses. LangSmith allows you to attach feedback '
+                          'scores to logged traces (oftentimes, this is hooked '
+                          'up to a feedback button in your app), then filter '
+                          'on traces that have a specific feedback tag and '
+                          'score. A common workflow is to filter on traces '
+                          'that receive a poor user feedback score, then drill '
+                          'down into problematic points using the detailed '
+                          'trace view.Annotating Traces‚ÄãLangSmith also '
+                          'supports sending runs to annotation queues, which '
+                          'allow annotators to closely inspect interesting '
+                          'traces and annotate them with respect to different '
+                          'criteria. Annotators can be PMs, engineers, or even '
+                          'subject matter experts. This allows users to catch '
+                          'regressions across important evaluation '
+                          'criteria.Adding Runs to a Dataset‚ÄãAs your '
+                          'application progresses through the beta testing '
+                          "phase, it's essential to continue collecting data "
+                          'to refine and improve its performance. LangSmith '
+                          'enables you to add runs as examples to datasets '
+                          '(from both the project page and within an '
+                          'annotation queue), expanding your test coverage on '
+                          'real-world scenarios. This is a key benefit in '
+                          'having your logging system and your '
+                          'evaluation/testing system in the same '
+                          'platform.Production‚ÄãClosely inspecting key data '
+                          'points, growing benchmarking datasets, annotating '
+                          'traces, and drilling down into important data in '
+                          'trace view are workflows you‚Äôll also want to do '
+                          'once your app hits production. However, especially '
+                          'at the production stage, it‚Äôs crucial to get a '
+                          'high-level overview of application performance with '
+                          'respect to latency, cost, and feedback scores. This '
+                          "ensures that it's delivering desirable results at "
+                          'scale.Monitoring and A/B Testing‚ÄãLangSmith '
+                          'provides monitoring charts that allow you to track '
+                          'key metrics over time. You can expand to view '
+                          'metrics for a given period and drill down into a '
+                          'specific data point to get a trace table for that '
+                          'time period ‚Äî this is especially handy for '
+                          'debugging production issues.LangSmith also allows '
+                          'for tag and metadata grouping, which allows users '
+                          'to mark different versions of their applications '
+                          'with different identifiers and view how they are '
+                          'performing side-by-side within each chart. This is '
+                          'helpful for A/B testing changes in prompt, model, '
+                          'or retrieval strategy.Was this page '
+                          'helpful?PreviousLangSmithNextSetupPrototypingBeta '
+                          'TestingProductionCommunityDiscordTwitterGitHubDocs '
+                          'CodeLangSmith '
+                          'SDKPythonJS/TSMoreHomepageBlogCopyright ¬© 2024 '
+                          'LangChain, Inc.\n'
+                          '\n'
+                          'LangSmith User Guide | \uf8ffü¶úÔ∏è\uf8ffüõ†Ô∏è '
+                          'LangSmith\n'
+                          '\n'
+                          '            Question: How can LangSmith help with '
+                          'testing?\n'
+                          '        ',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+Response:
+{
+  "id": "chatcmpl-97Lben3jUeLKC6unZeehotbWBw1YX",
+  "object": "chat.completion",
+  "created": 1711538378,
+  "model": "gpt-3.5-turbo-0125",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "LangSmith can help with testing by allowing developers to create datasets, run tests on their LLM applications, upload test cases in bulk, create custom evaluations, track and diagnose regressions in test scores, compare different configurations side-by-side, provide a playground environment for rapid iteration and experimentation, col
+lect feedback from users, annotate traces for evaluation, add runs to datasets to refine performance, and monitor key metrics over time for debugging and A/B testing."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1375,
+    "completion_tokens": 88,
+    "total_tokens": 1463
+  },
+  "system_fingerprint": "fp_3bc1b5746c"
+}
+
+LangSmith can help with testing by allowing developers to create datasets, run tests on their LLM applications, upload test cases in bulk, create custom evaluations, track and diagnose regressions in test scores, compare different configurations side-by-side, provide a playground environment for rapid iteration and experimentation, collect feedback from users, annotate traces for evaluation, add runs to datasets to refine performance, and monitor key metrics over time for debugging and A/B testing.
+> Tell me how
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'Given the following conversation and a follow up '
+                          'question, rephrase the follow up question to be a '
+                          'standalone question, in its original language.\n'
+                          '\n'
+                          'Chat History:\n'
+                          'Human: How can LangSmith help with testing?\n'
+                          'AI: LangSmith can help with testing by allowing '
+                          'developers to create datasets, run tests on their '
+                          'LLM applications, upload test cases in bulk, create '
+                          'custom evaluations, track and diagnose regressions '
+                          'in test scores, compare different configurations '
+                          'side-by-side, provide a playground environment for '
+                          'rapid iteration and experimentation, collect '
+                          'feedback from users, annotate traces for '
+                          'evaluation, add runs to datasets to refine '
+                          'performance, and monitor key metrics over time for '
+                          'debugging and A/B testing.\n'
+                          'Follow Up Input: Tell me how\n'
+                          'Standalone question:',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+Response:
+{
+  "id": "chatcmpl-97Lbj9snRYYg7qwiqY2mCWAi42R7L",
+  "object": "chat.completion",
+  "created": 1711538383,
+  "model": "gpt-3.5-turbo-0125",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "How can LangSmith help with testing?"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "completion_tokens": 8,
+    "total_tokens": 157
+  },
+  "system_fingerprint": "fp_3bc1b5746c"
+}
+
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': '\n'
+                          '            Answer the question based only on the '
+                          'following context:\n'
+                          '            Skip to main '
+                          'content\uf8ffü¶úÔ∏è\uf8ffüõ†Ô∏è LangSmith '
+                          'DocsLangChain Python DocsLangChain JS/TS '
+                          'DocsLangSmith API DocsSearchGo to AppLangSmithUser '
+                          'GuideSetupPricing (Coming '
+                          'Soon)Self-HostingTracingEvaluationMonitoringPrompt '
+                          'HubProxyCookbookUser GuideOn this pageLangSmith '
+                          'User GuideLangSmith is a platform for LLM '
+                          'application development, monitoring, and testing. '
+                          'In this guide, we‚Äôll highlight the breadth of '
+                          'workflows LangSmith supports and how they fit into '
+                          'each stage of the application development '
+                          'lifecycle. We hope this will inform users how to '
+                          'best utilize this powerful platform or give them '
+                          'something to consider if they‚Äôre just starting '
+                          'their journey.Prototyping‚ÄãPrototyping LLM '
+                          'applications often involves quick experimentation '
+                          'between prompts, model types, retrieval strategy '
+                          'and other parameters.\n'
+                          'The ability to rapidly understand how the model is '
+                          'performing ‚Äî and debug where it is failing ‚Äî is '
+                          'incredibly important for this '
+                          'phase.Debugging‚ÄãWhen developing new LLM '
+                          'applications, we suggest having LangSmith tracing '
+                          'enabled by default.\n'
+                          'Oftentimes, it isn‚Äôt necessary to look at every '
+                          'single trace. However, when things go wrong (an '
+                          'unexpected end result, infinite agent loop, slower '
+                          'than expected execution, higher than expected token '
+                          'usage), it‚Äôs extremely helpful to debug by '
+                          'looking through the application traces. LangSmith '
+                          'gives clear visibility and debugging information at '
+                          'each step of an LLM sequence, making it much easier '
+                          'to identify and root-cause issues.\n'
+                          'We provide native rendering of chat messages, '
+                          'functions, and retrieve documents.Initial Test '
+                          'Set‚ÄãWhile many developers still ship an initial '
+                          'version of their application based on ‚Äúvibe '
+                          'checks‚Äù, we‚Äôve seen an increasing number of '
+                          'engineering teams start to adopt a more test driven '
+                          'approach. LangSmith allows developers to create '
+                          'datasets, which are collections of inputs and '
+                          'reference outputs, and use these to run tests on '
+                          'their LLM applications.\n'
+                          'These test cases can be uploaded in bulk, created '
+                          'on the fly, or exported from application traces. '
+                          'LangSmith also makes it easy to run custom '
+                          'evaluations (both LLM and heuristic based) to score '
+                          'test results.Comparison View‚ÄãWhen prototyping '
+                          'different versions of your applications and making '
+                          'changes, it‚Äôs important to see whether or not '
+                          'you‚Äôve regressed with respect to your initial '
+                          'test cases.\n'
+                          'Oftentimes, changes in the prompt, retrieval '
+                          'strategy, or model choice can have huge '
+                          'implications in responses produced by your '
+                          'application.\n'
+                          'In order to get a sense for which variant is '
+                          'performing better, it‚Äôs useful to be able to view '
+                          'results for different configurations on the same '
+                          'datapoints side-by-side. We‚Äôve invested heavily '
+                          'in a user-friendly comparison view for test runs to '
+                          'track and diagnose regressions in test scores '
+                          'across multiple revisions of your '
+                          'application.Playground‚ÄãLangSmith provides a '
+                          'playground environment for rapid iteration and '
+                          'experimentation.\n'
+                          'This allows you to quickly test out different '
+                          'prompts and models. You can open the playground '
+                          'from any prompt or model run in your trace.\n'
+                          '\n'
+                          'This allows you to quickly test out different '
+                          'prompts and models. You can open the playground '
+                          'from any prompt or model run in your trace.\n'
+                          'Every playground run is logged in the system and '
+                          'can be used to create test cases or compare with '
+                          'other runs.Beta Testing‚ÄãBeta testing allows '
+                          'developers to collect more data on how their LLM '
+                          'applications are performing in real-world '
+                          'scenarios. In this phase, it‚Äôs important to '
+                          'develop an understanding for the types of inputs '
+                          'the app is performing well or poorly on and how '
+                          'exactly it‚Äôs breaking down in those cases. Both '
+                          'feedback collection and run annotation are critical '
+                          'for this workflow. This will help in curation of '
+                          'test cases that can help track '
+                          'regressions/improvements and development of '
+                          'automatic evaluations.Capturing Feedback‚ÄãWhen '
+                          'launching your application to an initial set of '
+                          'users, it‚Äôs important to gather human feedback on '
+                          'the responses it‚Äôs producing. This helps draw '
+                          'attention to the most interesting runs and '
+                          'highlight edge cases that are causing problematic '
+                          'responses. LangSmith allows you to attach feedback '
+                          'scores to logged traces (oftentimes, this is hooked '
+                          'up to a feedback button in your app), then filter '
+                          'on traces that have a specific feedback tag and '
+                          'score. A common workflow is to filter on traces '
+                          'that receive a poor user feedback score, then drill '
+                          'down into problematic points using the detailed '
+                          'trace view.Annotating Traces‚ÄãLangSmith also '
+                          'supports sending runs to annotation queues, which '
+                          'allow annotators to closely inspect interesting '
+                          'traces and annotate them with respect to different '
+                          'criteria. Annotators can be PMs, engineers, or even '
+                          'subject matter experts. This allows users to catch '
+                          'regressions across important evaluation '
+                          'criteria.Adding Runs to a Dataset‚ÄãAs your '
+                          'application progresses through the beta testing '
+                          "phase, it's essential to continue collecting data "
+                          'to refine and improve its performance. LangSmith '
+                          'enables you to add runs as examples to datasets '
+                          '(from both the project page and within an '
+                          'annotation queue), expanding your test coverage on '
+                          'real-world scenarios. This is a key benefit in '
+                          'having your logging system and your '
+                          'evaluation/testing system in the same '
+                          'platform.Production‚ÄãClosely inspecting key data '
+                          'points, growing benchmarking datasets, annotating '
+                          'traces, and drilling down into important data in '
+                          'trace view are workflows you‚Äôll also want to do '
+                          'once your app hits production. However, especially '
+                          'at the production stage, it‚Äôs crucial to get a '
+                          'high-level overview of application performance with '
+                          'respect to latency, cost, and feedback scores. This '
+                          "ensures that it's delivering desirable results at "
+                          'scale.Monitoring and A/B Testing‚ÄãLangSmith '
+                          'provides monitoring charts that allow you to track '
+                          'key metrics over time. You can expand to view '
+                          'metrics for a given period and drill down into a '
+                          'specific data point to get a trace table for that '
+                          'time period ‚Äî this is especially handy for '
+                          'debugging production issues.LangSmith also allows '
+                          'for tag and metadata grouping, which allows users '
+                          'to mark different versions of their applications '
+                          'with different identifiers and view how they are '
+                          'performing side-by-side within each chart. This is '
+                          'helpful for A/B testing changes in prompt, model, '
+                          'or retrieval strategy.Was this page '
+                          'helpful?PreviousLangSmithNextSetupPrototypingBeta '
+                          'TestingProductionCommunityDiscordTwitterGitHubDocs '
+                          'CodeLangSmith '
+                          'SDKPythonJS/TSMoreHomepageBlogCopyright ¬© 2024 '
+                          'LangChain, Inc.\n'
+                          '\n'
+                          'LangSmith User Guide | \uf8ffü¶úÔ∏è\uf8ffüõ†Ô∏è '
+                          'LangSmith\n'
+                          '\n'
+                          '            Question: How can LangSmith help with '
+                          'testing?\n'
+                          '        ',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+Response:
+{
+  "id": "chatcmpl-97LbkrNOLws5ffxbHCLkX9Strfk4V",
+  "object": "chat.completion",
+  "created": 1711538384,
+  "model": "gpt-3.5-turbo-0125",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "LangSmith helps with testing by allowing developers to create datasets for running tests on LLM applications, uploading test cases in bulk or creating them on the fly, running custom evaluations, comparing different versions of applications, providing a playground environment for rapid iteration and experimentation, facilitating beta
+testing to collect real-world performance data, capturing feedback from users, annotating traces for closer inspection, adding runs to datasets to refine performance, and monitoring key metrics over time for production issues and A/B testing."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1375,
+    "completion_tokens": 95,
+    "total_tokens": 1470
+  },
+  "system_fingerprint": "fp_3bc1b5746c"
+}
+
+LangSmith helps with testing by allowing developers to create datasets for running tests on LLM applications, uploading test cases in bulk or creating them on the fly, running custom evaluations, comparing different versions of applications, providing a playground environment for rapid iteration and experimentation, facilitating beta testing to collect real-world performance data, capturing feedback from users, annotating traces for closer inspection, adding runs to datasets to refine performance, and monitoring key metrics over time for production issues and A/B testing.
+>
+
+
+root@3c7b5b1ad14f:/workdir# python apps/rag/app.py -log -emb=OpenAI -m chat-memory langsmith-openai url=https://docs.smith.langchain.com/user_guide
+args: Namespace(database='langsmith-openai', data_sources=['url=https://docs.smith.langchain.com/user_guide'], mode='chat-memory', enable_logging=True, embedding='OpenAI', llm_model='gpt-3.5-turbo')
+LOADING VECTOR DB!
+INFO:faiss.loader:Loading faiss with AVX2 support.
+Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+Successfully loaded faiss with AVX2 support.
+vector_db.index.ntotal: 3
+> How can LangSmith help with testing?
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'Given the following conversation and a follow up '
+                          'question, rephrase the follow up question to be a '
+                          'standalone question, in its original language.\n'
+                          '\n'
+                          'Chat History:\n'
+                          '\n'
+                          'Follow Up Input: How can LangSmith help with '
+                          'testing?\n'
+                          'Standalone question:',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+Response:
+{
+  "id": "chatcmpl-97LbxcM4olxxUZCVbltbwXnLaHx9w",
+  "object": "chat.completion",
+  "created": 1711538397,
+  "model": "gpt-3.5-turbo-0125",
+  "choices
+": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "How can LangSmith help with testing?"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 53,
+    "completion_tokens": 8,
+    "total_tokens": 61
+  },
+  "system_fingerprint": "fp_3bc1b5746c"
+}
+
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': '\n'
+                          '            Answer the question based only on the '
+                          'following context:\n'
+                          '            Skip to main '
+                          'content\uf8ffü¶úÔ∏è\uf8ffüõ†Ô∏è LangSmith '
+                          'DocsLangChain Python DocsLangChain JS/TS '
+                          'DocsLangSmith API DocsSearchGo to AppLangSmithUser '
+                          'GuideSetupPricing (Coming '
+                          'Soon)Self-HostingTracingEvaluationMonitoringPrompt '
+                          'HubProxyCookbookUser GuideOn this pageLangSmith '
+                          'User GuideLangSmith is a platform for LLM '
+                          'application development, monitoring, and testing. '
+                          'In this guide, we‚Äôll highlight the breadth of '
+                          'workflows LangSmith supports and how they fit into '
+                          'each stage of the application development '
+                          'lifecycle. We hope this will inform users how to '
+                          'best utilize this powerful platform or give them '
+                          'something to consider if they‚Äôre just starting '
+                          'their journey.Prototyping‚ÄãPrototyping LLM '
+                          'applications often involves quick experimentation '
+                          'between prompts, model types, retrieval strategy '
+                          'and other parameters.\n'
+                          'The ability to rapidly understand how the model is '
+                          'performing ‚Äî and debug where it is failing ‚Äî is '
+                          'incredibly important for this '
+                          'phase.Debugging‚ÄãWhen developing new LLM '
+                          'applications, we suggest having LangSmith tracing '
+                          'enabled by default.\n'
+                          'Oftentimes, it isn‚Äôt necessary to look at every '
+                          'single trace. However, when things go wrong (an '
+                          'unexpected end result, infinite agent loop, slower '
+                          'than expected execution, higher than expected token '
+                          'usage), it‚Äôs extremely helpful to debug by '
+                          'looking through the application traces. LangSmith '
+                          'gives clear visibility and debugging information at '
+                          'each step of an LLM sequence, making it much easier '
+                          'to identify and root-cause issues.\n'
+                          'We provide native rendering of chat messages, '
+                          'functions, and retrieve documents.Initial Test '
+                          'Set‚ÄãWhile many developers still ship an initial '
+                          'version of their application based on ‚Äúvibe '
+                          'checks‚Äù, we‚Äôve seen an increasing number of '
+                          'engineering teams start to adopt a more test driven '
+                          'approach. LangSmith allows developers to create '
+                          'datasets, which are collections of inputs and '
+                          'reference outputs, and use these to run tests on '
+                          'their LLM applications.\n'
+                          'These test cases can be uploaded in bulk, created '
+                          'on the fly, or exported from application traces. '
+                          'LangSmith also makes it easy to run custom '
+                          'evaluations (both LLM and heuristic based) to score '
+                          'test results.Comparison View‚ÄãWhen prototyping '
+                          'different versions of your applications and making '
+                          'changes, it‚Äôs important to see whether or not '
+                          'you‚Äôve regressed with respect to your initial '
+                          'test cases.\n'
+                          'Oftentimes, changes in the prompt, retrieval '
+                          'strategy, or model choice can have huge '
+                          'implications in responses produced by your '
+                          'application.\n'
+                          'In order to get a sense for which variant is '
+                          'performing better, it‚Äôs useful to be able to view '
+                          'results for different configurations on the same '
+                          'datapoints side-by-side. We‚Äôve invested heavily '
+                          'in a user-friendly comparison view for test runs to '
+                          'track and diagnose regressions in test scores '
+                          'across multiple revisions of your '
+                          'application.Playground‚ÄãLangSmith provides a '
+                          'playground environment for rapid iteration and '
+                          'experimentation.\n'
+                          'This allows you to quickly test out different '
+                          'prompts and models. You can open the playground '
+                          'from any prompt or model run in your trace.\n'
+                          '\n'
+                          'This allows you to quickly test out different '
+                          'prompts and models. You can open the playground '
+                          'from any prompt or model run in your trace.\n'
+                          'Every playground run is logged in the system and '
+                          'can be used to create test cases or compare with '
+                          'other runs.Beta Testing‚ÄãBeta testing allows '
+                          'developers to collect more data on how their LLM '
+                          'applications are performing in real-world '
+                          'scenarios. In this phase, it‚Äôs important to '
+                          'develop an understanding for the types of inputs '
+                          'the app is performing well or poorly on and how '
+                          'exactly it‚Äôs breaking down in those cases. Both '
+                          'feedback collection and run annotation are critical '
+                          'for this workflow. This will help in curation of '
+                          'test cases that can help track '
+                          'regressions/improvements and development of '
+                          'automatic evaluations.Capturing Feedback‚ÄãWhen '
+                          'launching your application to an initial set of '
+                          'users, it‚Äôs important to gather human feedback on '
+                          'the responses it‚Äôs producing. This helps draw '
+                          'attention to the most interesting runs and '
+                          'highlight edge cases that are causing problematic '
+                          'responses. LangSmith allows you to attach feedback '
+                          'scores to logged traces (oftentimes, this is hooked '
+                          'up to a feedback button in your app), then filter '
+                          'on traces that have a specific feedback tag and '
+                          'score. A common workflow is to filter on traces '
+                          'that receive a poor user feedback score, then drill '
+                          'down into problematic points using the detailed '
+                          'trace view.Annotating Traces‚ÄãLangSmith also '
+                          'supports sending runs to annotation queues, which '
+                          'allow annotators to closely inspect interesting '
+                          'traces and annotate them with respect to different '
+                          'criteria. Annotators can be PMs, engineers, or even '
+                          'subject matter experts. This allows users to catch '
+                          'regressions across important evaluation '
+                          'criteria.Adding Runs to a Dataset‚ÄãAs your '
+                          'application progresses through the beta testing '
+                          "phase, it's essential to continue collecting data "
+                          'to refine and improve its performance. LangSmith '
+                          'enables you to add runs as examples to datasets '
+                          '(from both the project page and within an '
+                          'annotation queue), expanding your test coverage on '
+                          'real-world scenarios. This is a key benefit in '
+                          'having your logging system and your '
+                          'evaluation/testing system in the same '
+                          'platform.Production‚ÄãClosely inspecting key data '
+                          'points, growing benchmarking datasets, annotating '
+                          'traces, and drilling down into important data in '
+                          'trace view are workflows you‚Äôll also want to do '
+                          'once your app hits production. However, especially '
+                          'at the production stage, it‚Äôs crucial to get a '
+                          'high-level overview of application performance with '
+                          'respect to latency, cost, and feedback scores. This '
+                          "ensures that it's delivering desirable results at "
+                          'scale.Monitoring and A/B Testing‚ÄãLangSmith '
+                          'provides monitoring charts that allow you to track '
+                          'key metrics over time. You can expand to view '
+                          'metrics for a given period and drill down into a '
+                          'specific data point to get a trace table for that '
+                          'time period ‚Äî this is especially handy for '
+                          'debugging production issues.LangSmith also allows '
+                          'for tag and metadata grouping, which allows users '
+                          'to mark different versions of their applications '
+                          'with different identifiers and view how they are '
+                          'performing side-by-side within each chart. This is '
+                          'helpful for A/B testing changes in prompt, model, '
+                          'or retrieval strategy.Was this page '
+                          'helpful?PreviousLangSmithNextSetupPrototypingBeta '
+                          'TestingProductionCommunityDiscordTwitterGitHubDocs '
+                          'CodeLangSmith '
+                          'SDKPythonJS/TSMoreHomepageBlogCopyright ¬© 2024 '
+                          'LangChain, Inc.\n'
+                          '\n'
+                          'LangSmith User Guide | \uf8ffü¶úÔ∏è\uf8ffüõ†Ô∏è '
+                          'LangSmith\n'
+                          '\n'
+                          '            Question: How can LangSmith help with '
+                          'testing?\n'
+                          '        ',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+Response:
+{
+  "id": "chatcmpl-97Lc058rz6tZn2b4wAz4P2JVM70DU",
+  "object": "chat.completion",
+  "created": 1711538400,
+  "model": "gpt-3.5-turbo-0125",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "LangSmith can help with testing by allowing developers to create datasets, run tests on their LLM applications, upload test cases in bulk, create test cases on the fly, export test cases from application traces, run custom evaluations, track and diagnose regressions in test scores, and compare results for different configurations on t
+he same datapoints side-by-side. Additionally, LangSmith provides a playground environment for rapid iteration and experimentation, supports beta testing for collecting real-world performance data, captures feedback on responses from users, annotates traces for evaluation criteria, and allows users to add runs as examples to datasets to refine and improve application performance."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1375,
+    "completion_tokens": 124,
+    "total_tokens": 1499
+  },
+  "system_fingerprint": "fp_3bc1b5746c"
+}
+
+LangSmith can help with testing by allowing developers to create datasets, run tests on their LLM applications, upload test cases in bulk, create test cases on the fly, export test cases from application traces, run custom evaluations, track and diagnose regressions in test scores, and compare results for different configurations on the same datapoints side-by-side. Additionally, LangSmith provides a playground environment for rapid iteration and experimentation, supports beta testing for collecting real-world performance data, captures feedback on responses from users, annotates traces for evaluation criteria, and allows users to add runs as examples to datasets to refine and improve application performance.
+docs: 3
+> Tell me how
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': 'Given the following conversation and a follow up '
+                          'question, rephrase the follow up question to be a '
+                          'standalone question, in its original language.\n'
+                          '\n'
+                          'Chat History:\n'
+                          'Human: How can LangSmith help with testing?\n'
+                          'AI: LangSmith can help with testing by allowing '
+                          'developers to create datasets, run tests on their '
+                          'LLM applications, upload test cases in bulk, create '
+                          'test cases on the fly, export test cases from '
+                          'application traces, run custom evaluations, track '
+                          'and diagnose regressions in test scores, and '
+                          'compare results for different configurations on the '
+                          'same datapoints side-by-side. Additionally, '
+                          'LangSmith provides a playground environment for '
+                          'rapid iteration and experimentation, supports beta '
+                          'testing for collecting real-world performance data, '
+                          'captures feedback on responses from users, '
+                          'annotates traces for evaluation criteria, and '
+                          'allows users to add runs as examples to datasets to '
+                          'refine and improve application performance.\n'
+                          'Follow Up Input: Tell me how\n'
+                          'Standalone question:',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+Response:
+{
+  "id": "chatcmpl-97Lc5vyJ08Hn5MVknzOlM9yrkKnsr",
+  "object": "chat.completion",
+  "created": 1711538405,
+  "model": "gpt-3.5-turbo-0125",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "How can LangSmith help with testing?"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 185,
+    "completion_tokens": 8,
+    "total_tokens": 193
+  },
+  "system_fingerprint": "fp_3bc1b5746c"
+}
+
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+
+Request: POST https://api.openai.com/v1/chat/completions
+{'messages': [{'content': '\n'
+                          '            Answer the question based only on the '
+                          'following context:\n'
+                          '            Skip to main '
+                          'content\uf8ffü¶úÔ∏è\uf8ffüõ†Ô∏è LangSmith '
+                          'DocsLangChain Python DocsLangChain JS/TS '
+                          'DocsLangSmith API DocsSearchGo to AppLangSmithUser '
+                          'GuideSetupPricing (Coming '
+                          'Soon)Self-HostingTracingEvaluationMonitoringPrompt '
+                          'HubProxyCookbookUser GuideOn this pageLangSmith '
+                          'User GuideLangSmith is a platform for LLM '
+                          'application development, monitoring, and testing. '
+                          'In this guide, we‚Äôll highlight the breadth of '
+                          'workflows LangSmith supports and how they fit into '
+                          'each stage of the application development '
+                          'lifecycle. We hope this will inform users how to '
+                          'best utilize this powerful platform or give them '
+                          'something to consider if they‚Äôre just starting '
+                          'their journey.Prototyping‚ÄãPrototyping LLM '
+                          'applications often involves quick experimentation '
+                          'between prompts, model types, retrieval strategy '
+                          'and other parameters.\n'
+                          'The ability to rapidly understand how the model is '
+                          'performing ‚Äî and debug where it is failing ‚Äî is '
+                          'incredibly important for this '
+                          'phase.Debugging‚ÄãWhen developing new LLM '
+                          'applications, we suggest having LangSmith tracing '
+                          'enabled by default.\n'
+                          'Oftentimes, it isn‚Äôt necessary to look at every '
+                          'single trace. However, when things go wrong (an '
+                          'unexpected end result, infinite agent loop, slower '
+                          'than expected execution, higher than expected token '
+                          'usage), it‚Äôs extremely helpful to debug by '
+                          'looking through the application traces. LangSmith '
+                          'gives clear visibility and debugging information at '
+                          'each step of an LLM sequence, making it much easier '
+                          'to identify and root-cause issues.\n'
+                          'We provide native rendering of chat messages, '
+                          'functions, and retrieve documents.Initial Test '
+                          'Set‚ÄãWhile many developers still ship an initial '
+                          'version of their application based on ‚Äúvibe '
+                          'checks‚Äù, we‚Äôve seen an increasing number of '
+                          'engineering teams start to adopt a more test driven '
+                          'approach. LangSmith allows developers to create '
+                          'datasets, which are collections of inputs and '
+                          'reference outputs, and use these to run tests on '
+                          'their LLM applications.\n'
+                          'These test cases can be uploaded in bulk, created '
+                          'on the fly, or exported from application traces. '
+                          'LangSmith also makes it easy to run custom '
+                          'evaluations (both LLM and heuristic based) to score '
+                          'test results.Comparison View‚ÄãWhen prototyping '
+                          'different versions of your applications and making '
+                          'changes, it‚Äôs important to see whether or not '
+                          'you‚Äôve regressed with respect to your initial '
+                          'test cases.\n'
+                          'Oftentimes, changes in the prompt, retrieval '
+                          'strategy, or model choice can have huge '
+                          'implications in responses produced by your '
+                          'application.\n'
+                          'In order to get a sense for which variant is '
+                          'performing better, it‚Äôs useful to be able to view '
+                          'results for different configurations on the same '
+                          'datapoints side-by-side. We‚Äôve invested heavily '
+                          'in a user-friendly comparison view for test runs to '
+                          'track and diagnose regressions in test scores '
+                          'across multiple revisions of your '
+                          'application.Playground‚ÄãLangSmith provides a '
+                          'playground environment for rapid iteration and '
+                          'experimentation.\n'
+                          'This allows you to quickly test out different '
+                          'prompts and models. You can open the playground '
+                          'from any prompt or model run in your trace.\n'
+                          '\n'
+                          'This allows you to quickly test out different '
+                          'prompts and models. You can open the playground '
+                          'from any prompt or model run in your trace.\n'
+                          'Every playground run is logged in the system and '
+                          'can be used to create test cases or compare with '
+                          'other runs.Beta Testing‚ÄãBeta testing allows '
+                          'developers to collect more data on how their LLM '
+                          'applications are performing in real-world '
+                          'scenarios. In this phase, it‚Äôs important to '
+                          'develop an understanding for the types of inputs '
+                          'the app is performing well or poorly on and how '
+                          'exactly it‚Äôs breaking down in those cases. Both '
+                          'feedback collection and run annotation are critical '
+                          'for this workflow. This will help in curation of '
+                          'test cases that can help track '
+                          'regressions/improvements and development of '
+                          'automatic evaluations.Capturing Feedback‚ÄãWhen '
+                          'launching your application to an initial set of '
+                          'users, it‚Äôs important to gather human feedback on '
+                          'the responses it‚Äôs producing. This helps draw '
+                          'attention to the most interesting runs and '
+                          'highlight edge cases that are causing problematic '
+                          'responses. LangSmith allows you to attach feedback '
+                          'scores to logged traces (oftentimes, this is hooked '
+                          'up to a feedback button in your app), then filter '
+                          'on traces that have a specific feedback tag and '
+                          'score. A common workflow is to filter on traces '
+                          'that receive a poor user feedback score, then drill '
+                          'down into problematic points using the detailed '
+                          'trace view.Annotating Traces‚ÄãLangSmith also '
+                          'supports sending runs to annotation queues, which '
+                          'allow annotators to closely inspect interesting '
+                          'traces and annotate them with respect to different '
+                          'criteria. Annotators can be PMs, engineers, or even '
+                          'subject matter experts. This allows users to catch '
+                          'regressions across important evaluation '
+                          'criteria.Adding Runs to a Dataset‚ÄãAs your '
+                          'application progresses through the beta testing '
+                          "phase, it's essential to continue collecting data "
+                          'to refine and improve its performance. LangSmith '
+                          'enables you to add runs as examples to datasets '
+                          '(from both the project page and within an '
+                          'annotation queue), expanding your test coverage on '
+                          'real-world scenarios. This is a key benefit in '
+                          'having your logging system and your '
+                          'evaluation/testing system in the same '
+                          'platform.Production‚ÄãClosely inspecting key data '
+                          'points, growing benchmarking datasets, annotating '
+                          'traces, and drilling down into important data in '
+                          'trace view are workflows you‚Äôll also want to do '
+                          'once your app hits production. However, especially '
+                          'at the production stage, it‚Äôs crucial to get a '
+                          'high-level overview of application performance with '
+                          'respect to latency, cost, and feedback scores. This '
+                          "ensures that it's delivering desirable results at "
+                          'scale.Monitoring and A/B Testing‚ÄãLangSmith '
+                          'provides monitoring charts that allow you to track '
+                          'key metrics over time. You can expand to view '
+                          'metrics for a given period and drill down into a '
+                          'specific data point to get a trace table for that '
+                          'time period ‚Äî this is especially handy for '
+                          'debugging production issues.LangSmith also allows '
+                          'for tag and metadata grouping, which allows users '
+                          'to mark different versions of their applications '
+                          'with different identifiers and view how they are '
+                          'performing side-by-side within each chart. This is '
+                          'helpful for A/B testing changes in prompt, model, '
+                          'or retrieval strategy.Was this page '
+                          'helpful?PreviousLangSmithNextSetupPrototypingBeta '
+                          'TestingProductionCommunityDiscordTwitterGitHubDocs '
+                          'CodeLangSmith '
+                          'SDKPythonJS/TSMoreHomepageBlogCopyright ¬© 2024 '
+                          'LangChain, Inc.\n'
+                          '\n'
+                          'LangSmith User Guide | \uf8ffü¶úÔ∏è\uf8ffüõ†Ô∏è '
+                          'LangSmith\n'
+                          '\n'
+                          '            Question: How can LangSmith help with '
+                          'testing?\n'
+                          '        ',
+               'role': 'user'}],
+ 'model': 'gpt-3.5-turbo',
+ 'n': 1,
+ 'stream': False,
+ 'temperature': 0.7}
+
+Response:
+{
+  "id": "chatcmpl-97Lc6CFSUEL9CeXHwDPTR0UoCsGGI",
+  "object": "chat.completion",
+  "created": 1711538406,
+  "model": "gpt-3.5-turbo-0125",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "LangSmith can help with testing by allowing developers to create datasets, run tests on their LLM applications, upload test cases in bulk or export them from application traces, and run custom evaluations to score test results. Additionally, LangSmith provides a comparison view to track and diagnose regressions in test scores across m
+ultiple revisions of an application. The platform also offers a playground environment for rapid iteration and experimentation, as well as monitoring charts to track key metrics over time and perform A/B testing on different versions of applications."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1375,
+    "completion_tokens": 101,
+    "total_tokens": 1476
+  },
+  "system_fingerprint": "fp_3bc1b5746c"
+}
+
+LangSmith can help with testing by allowing developers to create datasets, run tests on their LLM applications, upload test cases in bulk or export them from application traces, and run custom evaluations to score test results. Additionally, LangSmith provides a comparison view to track and diagnose regressions in test scores across multiple revisions of an application. The platform also offers a playground environment for rapid iteration and experimentation, as well as monitoring charts to track key metrics over time and perform A/B testing on different versions of applications.
+docs: 3
+>
